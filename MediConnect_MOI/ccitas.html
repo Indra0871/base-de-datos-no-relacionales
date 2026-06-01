@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <title>Registro de Citas</title>
     <style>
-        /* Aquí copias los mismos colores que ya tienes en tu otro código */
-        body { font-family: sans-serif; background-color: #fdfdf5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfdf5; }
         header { background-color: #ADD8E6; padding: 20px; text-align: center; }
-        nav { background-color: #90EE90; padding: 10px; text-align: center; }
-        .container { padding: 30px; }
         
-        /* Estilo de la tabla */
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
-        th { background-color: #90EE90; }
+        .menu-interno { 
+            background-color: #e8f4f8; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 1px solid #ccc;
+        }
+        .btn-salto {
+            text-decoration: none;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 0.9em;
+            border-radius: 4px;
+        }
+
+        /* --- DISEÑO DE DOS COLUMNAS (GRID) --- */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Izquierda: formulario fijo, Derecha: tabla */
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* --- ESTILOS DEL FORMULARIO --- */
+        .form-sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-sidebar h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* --- ESTILOS DE LA TABLA --- */
+        .data-content { 
+            display: flex;
+            flex-direction: column;
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 0; padding-top: 10px; }
+
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 40px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #90EE90; color: #1b5e20; }
+
+        footer { text-align: center; padding: 40px; background: #d1f2d1; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -23,103 +104,118 @@
         <p>Listado Oficial de Citas</p>
     </header>
 
-    <nav>
-        <a href="index.html" style="margin-right: 20px; text-decoration: none; font-weight: bold;">Cerrar Tabla y Volver</a>
-    </nav>
-
-    <div class="container">
-        <h2>Citas Registrados</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Fecha y hora</th>
-                <th>Paciente</th>
-                <th>Medico</th>
-                <th>Estado</th>
-                <th>Precio</th>
-            </tr>
-            <tr>
-            <td>101</td>
-            <td>2026-02-10 09:00</td>
-            <td>Juan Gómez</td>
-            <td>Dr. Roberto Arce</td>
-            <td>Completada</td>
-            <td>$1000</td>
-        </tr>
-        <tr>
-            <td>102</td>
-            <td>2026-02-10 10:00</td>
-            <td>Maria Rodriguez</td>
-            <td>Dra. Lucía Méndez</td>
-            <td>Completada</td>
-            <td>$750</td>
-        </tr>
-        <tr>
-            <td>103</td>
-            <td>2026-02-10 11:00</td>
-            <td>Luis López</td>
-            <td>Dr. Sergio Ramos</td>
-            <td>Completada</td>
-            <td>$900</td>
-        </tr>
-        <tr>
-            <td>104</td>
-            <td>2026-02-11 09:00</td>
-            <td>Fernanda Hernández</td>
-            <td>Dr. Ricardo Montemayor</td>
-            <td style="color: #d35400; font-weight: bold;">Pendiente</td>
-            <td>$1200</td>
-        </tr>
-        <tr>
-            <td>105</td>
-            <td>2026-02-10 10:00</td>
-            <td>Roberto Martínez</td>
-            <td>Dra. Sofía Sanluccoy</td>
-            <td>Completada</td>
-            <td>$850</td>
-        </tr>
-        <tr>
-            <td>106</td>
-            <td>2026-02-12 12:00</td>
-            <td>Jessica Sánchez</td>
-            <td>Dra. Claudia Portillo</td>
-            <td>Completada</td>
-            <td>$600</td>
-        </tr>
-        <tr>
-            <td>107</td>
-            <td>2026-02-13 08:00</td>
-            <td>Daniel Pérez</td>
-            <td>Dra. Regina de la Mora</td>
-            <td style="color: #d35400; font-weight: bold;">Pendiente</td>
-            <td>$900</td>
-        </tr>
-        <tr>
-            <td>108</td>
-            <td>2026-02-13 10:30</td>
-            <td>Gabriela Ramírez</td>
-            <td>Dr. Alejandro Valdivia</td>
-            <td style="color: red; font-weight: bold;">Cancelada</td>
-            <td>$950</td>
-        </tr>
-        <tr>
-            <td>109</td>
-            <td>2026-02-14 17:00</td>
-            <td>Tomás Castillo</td>
-            <td>Dr. Francisco Altamirano</td>
-            <td style="color: blue; font-weight: bold;">Revisión</td>
-            <td>$1300</td>
-        </tr>
-        <tr>
-            <td>110</td>
-            <td>2026-02-15 09:00</td>
-            <td>Sofía Rivera</td>
-            <td>Dra. Beatriz Villagrán</td>
-            <td style="color: blue; font-weight: bold;">Revisión</td>
-            <td>$1500</td>
-        </tr>
-        </table>
+    <div class="menu-interno">
+        <a href="index.html" class="btn-salto">Cerrar Tabla y Volver</a>
     </div>
+
+    <!-- Contenedor Principal en Grid -->
+    <div class="workspace">
+        
+        <!-- COLUMNA IZQUIERDA: Formulario de Registro -->
+        <aside class="form-sidebar">
+            <h3>Agendar Cita</h3>
+            <form id="citaForm">
+                <div class="form-group">
+                    <label for="id">ID Cita:</label>
+                    <input type="number" id="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_hora">Fecha y Hora:</label>
+                    <input type="datetime-local" id="fecha_hora" required>
+                </div>
+                <div class="form-group">
+                    <label for="paciente">Paciente:</label>
+                    <input type="text" id="paciente" required>
+                </div>
+                <div class="form-group">
+                    <label for="medico">Médico:</label>
+                    <input type="text" id="medico" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select id="estado" required>
+                        <option value="Completada">Completada</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Revisión">Revisión</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio ($):</label>
+                    <input type="text" id="precio" placeholder="Ej. $1000" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </aside>
+
+        <!-- COLUMNA DERECHA: Tabla Vacía -->
+        <main class="data-content">
+            <h2>Citas Registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha y hora</th>
+                        <th>Paciente</th>
+                        <th>Médico</th>
+                        <th>Estado</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-citas">
+                    <!-- Los datos se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer>
+        Martinez Ortiz Indra Jezabel | Grupo: J | 2026
+    </footer>
+
+    <!-- Script de Automatización Local -->
+    <script>
+        document.getElementById('citaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('id').value;
+            // Formatear la fecha para reemplazar la 'T' nativa de HTML por un espacio
+            const fechaHoraRaw = document.getElementById('fecha_hora').value;
+            const fechaHora = fechaHoraRaw.replace('T', ' ');
+            
+            const paciente = document.getElementById('paciente').value;
+            const medico = document.getElementById('medico').value;
+            const estado = document.getElementById('estado').value;
+            let precio = document.getElementById('precio').value;
+
+            // Asegurar que lleve el signo de pesos
+            if(!precio.startsWith('$')) {
+                precio = '$' + precio;
+            }
+
+            // Aplicar colores según el estado tal como en tu código original
+            let estiloEstado = '';
+            if (estado === 'Pendiente') estiloEstado = 'style="color: #d35400; font-weight: bold;"';
+            else if (estado === 'Cancelada') estiloEstado = 'style="color: red; font-weight: bold;"';
+            else if (estado === 'Revisión') estiloEstado = 'style="color: blue; font-weight: bold;"';
+
+            const tbody = document.getElementById('tabla-citas');
+            const nuevaFila = document.createElement('tr');
+
+            nuevaFila.innerHTML = `
+                <td>${id}</td>
+                <td>${fechaHora}</td>
+                <td>${paciente}</td>
+                <td>${medico}</td>
+                <td ${estiloEstado}>${estado}</td>
+                <td>${precio}</td>
+            `;
+
+            tbody.appendChild(nuevaFila);
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>

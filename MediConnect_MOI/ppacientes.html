@@ -7,7 +7,6 @@
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfdf5; }
         header { background-color: #ADD8E6; padding: 20px; text-align: center; }
         
-        /* Estilo para los botones de salto */
         .menu-interno { 
             background-color: #e8f4f8; 
             padding: 15px; 
@@ -21,15 +20,80 @@
             padding: 10px 20px;
             margin: 0 10px;
             font-size: 0.9em;
+            border-radius: 4px;
         }
 
-        .container { padding: 20px; max-width: 900px; margin: auto; }
-        
-        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 50px; padding-top: 20px; }
+        /* --- DISEÑO DE DOS COLUMNAS (GRID) --- */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Izquierda: formulario fijo, Derecha: tablas */
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
 
-        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 50px; }
-        th, td { border: 1px solid #333; padding: 12px; text-align: center; }
-        th { background-color: #90EE90; }
+        /* --- ESTILOS DEL FORMULARIO --- */
+        .form-sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-sidebar h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* --- ESTILOS DE LAS TABLAS --- */
+        .data-content { 
+            display: flex;
+            flex-direction: column;
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 0; padding-top: 10px; }
+        .section-block { margin-bottom: 4px; }
+
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 40px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #90EE90; color: #1b5e20; }
 
         footer { text-align: center; padding: 40px; background: #d1f2d1; margin-top: 50px; }
     </style>
@@ -43,210 +107,125 @@
 
     <div class="menu-interno">
         <a href="index.html" style="margin-right: 30px; color: #333;"><b> Volver al Inicio</b></a>
-        
         <a href="#datos-personales" class="btn-salto">Ver Datos Personales</a>
         <a href="#datos-clinicos" class="btn-salto">Ver Datos Clínicos</a>
     </div>
 
-    <div class="container">
+    <!-- Contenedor Principal en Grid -->
+    <div class="workspace">
         
-        <section id="datos-personales">
-            <h2>1. Datos Personales</h2>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>CURP</th>
-                    <th>Fecha nacimiento</th>
-                    <th>Teléfono</th>
-                    <th>RFC</th>
-                </tr>
-                <tr>
-            <td>1</td>
-            <td>Juan Gómez</td>
-            <td>GOMJ850115</td>
-            <td>1985-01-15</td>
-            <td>555-0101</td>
-            <td>GOMJ850115H30</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Maria Rodriguez</td>
-            <td>RODM920320</td>
-            <td>1992-03-20</td>
-            <td>555-0202</td>
-            <td>RODM9203206A1</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Luis Lopez</td>
-            <td>LOPL780512</td>
-            <td>1978-05-12</td>
-            <td>555-0303</td>
-            <td>LOPL780512XYZ</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Fernanda Hernandez</td>
-            <td>HERF000830</td>
-            <td>2000-08-30</td>
-            <td>555-0404</td>
-            <td>HERF000830M55</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Claudia Ortiz</td>
-            <td>MARR881105</td>
-            <td>1988-11-05</td>
-            <td>555-0505</td>
-            <td>MARR881105KL0</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Jessica Sanchez</td>
-            <td>SANJ951212</td>
-            <td>1995-12-12</td>
-            <td>555-0606</td>
-            <td>SANJ951212RT5</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>Daniel Perez</td>
-            <td>PERD820707</td>
-            <td>1982-07-07</td>
-            <td>555-0707</td>
-            <td>PERD820707JP1</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>Gabriela Ramirez</td>
-            <td>RAMG991010</td>
-            <td>1999-10-10</td>
-            <td>123456</td>
-            <td>RAMG991010A</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>Tomas Castillo</td>
-            <td>CAST900425</td>
-            <td>1990-04-25</td>
-            <td>555-0909</td>
-            <td>CAST9004256V9</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>Sofia Rivera</td>
-            <td>RIVS930618</td>
-            <td>1993-06-18</td>
-            <td>555-1010</td>
-            <td>RIVS930618UX3</td>
-        </tr>
-            </table>
-        </section>
+        <!-- COLUMNA IZQUIERDA: Formulario NoSQL -->
+        <aside class="form-sidebar">
+            <h3>Registro de Paciente</h3>
+            <form id="pacienteForm">
+                <!-- Datos Personales -->
+                <div class="form-group">
+                    <label for="id">ID Paciente:</label>
+                    <input type="number" id="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="curp">CURP:</label>
+                    <input type="text" id="curp" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_nac">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha_nac" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="rfc">RFC:</label>
+                    <input type="text" id="rfc" required>
+                </div>
 
-        <section id="datos-clinicos">
-            <h2>2. Datos Clínicos</h2>
-            <table>
-                <tr style="background-color: #ADD8E6;">
-                    <th>Tipo Sangre</th>
-                    <th>Alergias</th>
-                    <th>Antecedentes</th>
-                    <th>Enfermedades</th>
-                    <th>Peso</th>
-                    <th>Estatura</th>
-                </tr>
-               <tr>
-  		  <td>O+</td>
-    		  <td>Ninguna</td>
-     		  <td>Hipertensión</td>
-    		   <td>Diabetes</td>
-    		  <td>60 kg</td>
-   		  <td>1.68 m</td>
-	      </tr>
+                <!-- Datos Clínicos -->
+                <div class="form-group">
+                    <label for="tipo_sangre">Tipo de Sangre:</label>
+                    <select id="tipo_sangre" required>
+                        <option value="">Selecciona...</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="alergias">Alergias:</label>
+                    <input type="text" id="alergias" placeholder="Ej. Penicilina, Ninguna">
+                </div>
+                <div class="form-group">
+                    <label for="antecedentes">Antecedentes:</label>
+                    <input type="text" id="antecedentes" placeholder="Ej. Hipertensión">
+                </div>
+                <div class="form-group">
+                    <label for="enfermedades">Enfermedades:</label>
+                    <input type="text" id="enfermedades" placeholder="Ej. Diabetes">
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="text" id="peso" placeholder="Ej. 70 kg">
+                </div>
+                <div class="form-group">
+                    <label for="estatura">Estatura (m):</label>
+                    <input type="text" id="estatura" placeholder="Ej. 1.75 m">
+                </div>
 
-              <tr>
-   		 <td>A+</td>
- 	         <td>Penicilina</td>
-                 <td>Asma</td>
-   		 <td>Ninguna</td>
-		    <td>55 kg</td>
-  		  <td>1.60 m</td>
-	      </tr>
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </aside>
 
-              <tr>
-      		  <td>B+</td>
-  		  <td>Ninguna</td>
- 		   <td>Diabetes</td>
-   		 <td>Gripe</td>
-		    <td>72 kg</td>
-  		  <td>1.75 m</td>
-	     </tr>
+        <!-- COLUMNA DERECHA: Tablas Vacías -->
+        <main class="data-content">
+            
+            <section id="datos-personales" class="section-block">
+                <h2>1. Datos Personales</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>CURP</th>
+                            <th>Fecha nacimiento</th>
+                            <th>Teléfono</th>
+                            <th>RFC</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-personales">
+                        <!-- Los datos se insertarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </section>
 
-	     <tr>
-    		<td>AB+</td>
-   		 <td>Polvo</td>
-  		  <td>Migraña</td>
-  		  <td>Anemia</td>
-  		  <td>58 kg</td>
-    		<td>1.65 m</td>
-	    </tr>
+            <section id="datos-clinicos" class="section-block">
+                <h2>2. Datos Clínicos</h2>
+                <table>
+                    <thead>
+                        <tr style="background-color: #ADD8E6;">
+                            <th>Tipo Sangre</th>
+                            <th>Alergias</th>
+                            <th>Antecedentes</th>
+                            <th>Enfermedades</th>
+                            <th>Peso</th>
+                            <th>Estatura</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-clinicos">
+                        <!-- Los datos se insertarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </section>
 
-            <tr>
-   		 <td>O-</td>
-   		 <td>Latex</td>
-    		<td>Hipertensión</td>
-    		<td>Covid</td>
-    		<td>80 kg</td>
-    		<td>1.70 m</td>
-	    </tr>
-
-            <tr>
-    		<td>A-</td>
-    		<td>Ninguna</td>
-    		<td>Ninguno</td>
-    		<td>Diabetes</td>
-    		<td>63 kg</td>
-    		<td>1.67 m</td>
-	   </tr>
-
-           <tr>
-    		<td>B-</td>
-    		<td>Mariscos</td>
-    		<td>Asma</td>
-    		<td>Ninguna</td>
-    		<td>75 kg</td>
-    		<td>1.80 m</td>
-	  </tr>
-
-          <tr>
-    		<td>O+</td>
-    		<td>Ninguna</td>
-   		 <td>Anemia</td>
-   		 <td>Gripe</td>
-    		<td>59 kg</td>
-    		<td>1.64 m</td>
-	</tr>
-
-	<tr>
-    		<td>AB-</td>
-    		<td>Polen</td>
-    		<td>Hipotiroidismo</td>
-    		<td>Covid</td>
-    		<td>82 kg</td>
-    		<td>1.78 m</td>
-	</tr>
-
-	<tr>
-    		<td>A+</td>
-    		<td>Latex</td>
-    		<td>Ninguno</td>
-    		<td>Ninguna</td>
-    		<td>61 kg</td>
-    		<td>1.69 m</td>
-		</tr>
-            </table>
-        </section>
-
+        </main>
     </div>
 
     <footer>
@@ -255,3 +234,4 @@
 
 </body>
 </html>
+

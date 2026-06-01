@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <title>Registro de Doctores</title>
     <style>
-        /* Aquí copias los mismos colores que ya tienes en tu otro código */
-        body { font-family: sans-serif; background-color: #fdfdf5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfdf5; }
         header { background-color: #ADD8E6; padding: 20px; text-align: center; }
-        nav { background-color: #90EE90; padding: 10px; text-align: center; }
-        .container { padding: 30px; }
         
-        /* Estilo de la tabla */
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
-        th { background-color: #90EE90; }
+        .menu-interno { 
+            background-color: #e8f4f8; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 1px solid #ccc;
+        }
+        .btn-salto {
+            text-decoration: none;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 0.9em;
+            border-radius: 4px;
+        }
+
+        /* --- DISEÑO DE DOS COLUMNAS (GRID) --- */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Izquierda: formulario fijo, Derecha: tabla */
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* --- ESTILOS DEL FORMULARIO --- */
+        .form-sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-sidebar h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* --- ESTILOS DE LA TABLA --- */
+        .data-content { 
+            display: flex;
+            flex-direction: column;
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 0; padding-top: 10px; }
+
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 40px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #90EE90; color: #1b5e20; }
+
+        footer { text-align: center; padding: 40px; background: #d1f2d1; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -23,124 +104,113 @@
         <p>Listado Oficial de Doctores</p>
     </header>
 
-    <nav>
-        <a href="index.html" style="margin-right: 20px; text-decoration: none; font-weight: bold;">Cerrar Tabla y Volver</a>
-    </nav>
-
-    <div class="container">
-        <h2>Doctores Registrados</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Especialidad</th>
-                <th>Cedula profesional</th>
-                <th>Telefono</th>
-                <th>Correo</th>
-                <th>dias laborales</th>
-                <th>RFC</th>
-        <tr>
-            <td>1</td>
-            <td>Dr. Roberto Arce</td>
-            <td>General</td>
-            <td>778899</td>
-            <td>555-111-0001</td>
-            <td>roberto.a@clinica.com</td>
-            <td>Lun a Vie 08:00 a 14:00</td>
-            <td>ARCR850101AA1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Dra. Lucía Méndez</td>
-            <td>Pediatría</td>
-            <td>112233</td>
-            <td>555-111-0002</td>
-            <td>lucia.m@clinica.com</td>
-            <td>Lun, Mie, Vie 09:00 a 14:00</td>
-            <td>MELU900202BB2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Dr. Juan Ortiz</td>
-            <td>Cardiología</td>
-            <td>445566</td>
-            <td>555-111-0003</td>
-            <td>sergio.r@clinica.com</td>
-            <td>Mar, Jue, Sáb 13:00 a 17:00</td>
-            <td>ORJU880303CC3</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Dra. Beatriz Villagrán</td>
-            <td>Ginecología</td>
-            <td>554433</td>
-            <td>555-111-0004</td>
-            <td>beatriz.v@clinica.com</td>
-            <td>Lun a Vie 09:00 a 13:00</td>
-            <td>VIBE870404DD4</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Dr. Ricardo Montemayor</td>
-            <td>Traumatología</td>
-            <td>992211</td>
-            <td>555-111-0005</td>
-            <td>rica.monte@clinica.com</td>
-            <td>Sáb y Dom 09:00 a 13:00</td>
-            <td>MORI860505EE5</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>Dra. Sofía Sanluccoy</td>
-            <td>Cardiología</td>
-            <td>667788</td>
-            <td>555-111-0006</td>
-            <td>sofia.s@clinica.com</td>
-            <td>Lun, Mar, Jue 10:00 a 13:00</td>
-            <td>SASO920606FF6</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>Dr. Alejandro Valdivia</td>
-            <td>Oftalmología</td>
-            <td>332211</td>
-            <td>555-111-0007</td>
-            <td>alejandro.v@clinica.com</td>
-            <td>Mié a Sáb 08:00 a 15:00</td>
-            <td>VAAL910707GG7</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>Dra. Claudia Portillo</td>
-            <td>Nutrición</td>
-            <td>885522</td>
-            <td>555-111-0008</td>
-            <td>claudia.p@clinica.com</td>
-            <td>Lun a Vie 09:00 a 16:00</td>
-            <td>POCL930808HH8</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>Dr. Francisco Altamirano</td>
-            <td>Psiquiatría</td>
-            <td>441100</td>
-            <td>111-222-0009</td>
-            <td>francisco.a@clinica.com</td>
-            <td>Mar a Sáb 13:00 a 21:00</td>
-            <td>ALFR890909II9</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>Dra. Regina de la Mora</td>
-            <td>Endocrinología</td>
-            <td>773300</td>
-            <td>555-111-0010</td>
-            <td>regina.d@clinica.com</td>
-            <td>Lun a Jue 07:00 a 13:00</td>
-            <td>MORE940101JJ0</td>
-        </tr>
-        </table>
+    <div class="menu-interno">
+        <a href="index.html" class="btn-salto">Cerrar Tabla y Volver</a>
     </div>
+
+    <!-- Contenedor Principal en Grid -->
+    <div class="workspace">
+        
+        <!-- COLUMNA IZQUIERDA: Formulario de Registro -->
+        <aside class="form-sidebar">
+            <h3>Alta de Doctor</h3>
+            <form id="doctorForm">
+                <div class="form-group">
+                    <label for="id">ID Doctor:</label>
+                    <input type="number" id="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="especialidad">Especialidad:</label>
+                    <input type="text" id="especialidad" required>
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula Profesional:</label>
+                    <input type="text" id="cedula" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico:</label>
+                    <input type="email" id="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="dias">Días y Horarios Laborales:</label>
+                    <input type="text" id="dias" placeholder="Ej. Lun a Vie 08:00 a 14:00" required>
+                </div>
+                <div class="form-group">
+                    <label for="rfc">RFC:</label>
+                    <input type="text" id="rfc" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </aside>
+
+        <!-- COLUMNA DERECHA: Tabla Vacía -->
+        <main class="data-content">
+            <h2>Doctores Registrados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Especialidad</th>
+                        <th>Cédula Profesional</th>
+                        <th>Teléfono</th>
+                        <th>Correo</th>
+                        <th>Días Laborales</th>
+                        <th>RFC</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-doctores">
+                    <!-- Los datos se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer>
+        Martinez Ortiz Indra Jezabel | Grupo: J | 2026
+    </footer>
+
+    <!-- Script de Automatización Local -->
+    <script>
+        document.getElementById('doctorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('id').value;
+            const nombre = document.getElementById('nombre').value;
+            const especialidad = document.getElementById('especialidad').value;
+            const cedula = document.getElementById('cedula').value;
+            const telefono = document.getElementById('telefono').value;
+            const correo = document.getElementById('correo').value;
+            const dias = document.getElementById('dias').value;
+            const rfc = document.getElementById('rfc').value;
+
+            const tbody = document.getElementById('tabla-doctores');
+            const nuevaFila = document.createElement('tr');
+
+            nuevaFila.innerHTML = `
+                <td>${id}</td>
+                <td>${nombre}</td>
+                <td>${especialidad}</td>
+                <td>${cedula}</td>
+                <td>${telefono}</td>
+                <td>${correo}</td>
+                <td>${dias}</td>
+                <td>${rfc}</td>
+            `;
+
+            tbody.appendChild(nuevaFila);
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>

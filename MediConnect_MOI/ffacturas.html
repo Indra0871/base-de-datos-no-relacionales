@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <title>Registro de Facturas</title>
     <style>
-        /* Aquí copias los mismos colores que ya tienes en tu otro código */
-        body { font-family: sans-serif; background-color: #fdfdf5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfdf5; }
         header { background-color: #ADD8E6; padding: 20px; text-align: center; }
-        nav { background-color: #90EE90; padding: 10px; text-align: center; }
-        .container { padding: 30px; }
         
-        /* Estilo de la tabla */
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
-        th { background-color: #90EE90; }
+        .menu-interno { 
+            background-color: #e8f4f8; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 1px solid #ccc;
+        }
+        .btn-salto {
+            text-decoration: none;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 0.9em;
+            border-radius: 4px;
+        }
+
+        /* --- DISEÑO DE DOS COLUMNAS (GRID) --- */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Izquierda: formulario fijo, Derecha: tabla */
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* --- ESTILOS DEL FORMULARIO --- */
+        .form-sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-sidebar h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* --- ESTILOS DE LA TABLA --- */
+        .data-content { 
+            display: flex;
+            flex-direction: column;
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 0; padding-top: 10px; }
+
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 40px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #90EE90; color: #1b5e20; }
+
+        footer { text-align: center; padding: 40px; background: #d1f2d1; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -23,103 +104,108 @@
         <p>Listado Oficial de Facturas</p>
     </header>
 
-    <nav>
-        <a href="index.html" style="margin-right: 20px; text-decoration: none; font-weight: bold;">Cerrar Tabla y Volver</a>
-    </nav>
-
-    <div class="container">
-        <h2>Facturas Registrados</h2>
-        <table>
-            <tr>
-                <th>ID pago</th>
-                <th>ID cita</th>
-                <th>Metodo pago</th>
-                <th>subtotal</th>
-                <th>IVA</th>
-                <th>Total</th>
-            </tr>
-            <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>Efectivo</td>
-            <td>431.03</td>
-            <td>68.97</td>
-            <td>500</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>Tarjeta</td>
-            <td>646.55</td>
-            <td>103.45</td>
-            <td>750</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>3</td>
-            <td>Efectivo</td>
-            <td>1293.1</td>
-            <td>206.9</td>
-            <td>1500</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>4</td>
-            <td>N/A</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>5</td>
-            <td>Tarjeta</td>
-            <td>1034.48</td>
-            <td>165.52</td>
-            <td>1200</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>6</td>
-            <td>Efectivo</td>
-            <td>732.76</td>
-            <td>117.24</td>
-            <td>850</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>7</td>
-            <td>Transferencia</td>
-            <td>948.28</td>
-            <td>151.72</td>
-            <td>1100</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>8</td>
-            <td>Efectivo</td>
-            <td>818.97</td>
-            <td>131.03</td>
-            <td>950</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>9</td>
-            <td>Transferencia</td>
-            <td>1120.69</td>
-            <td>179.31</td>
-            <td>1300</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>10</td>
-            <td>Efectivo</td>
-            <td>525.86</td>
-            <td>84.14</td>
-            <td>610</td>
-        </tr>
-        </table>
+    <div class="menu-interno">
+        <a href="index.html" class="btn-salto">Cerrar Tabla y Volver</a>
     </div>
+
+    <!-- Contenedor Principal en Grid -->
+    <div class="workspace">
+        
+        <!-- COLUMNA IZQUIERDA: Formulario de Registro -->
+        <aside class="form-sidebar">
+            <h3>Nueva Factura</h3>
+            <form id="facturaForm">
+                <div class="form-group">
+                    <label for="id_pago">ID Pago:</label>
+                    <input type="number" id="id_pago" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_cita">ID Cita:</label>
+                    <input type="number" id="id_cita" required>
+                </div>
+                <div class="form-group">
+                    <label for="metodo_pago">Método de Pago:</label>
+                    <select id="metodo_pago" required>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="N/A">N/A</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="total">Monto Total ($):</label>
+                    <input type="number" id="total" step="0.01" placeholder="Ej. 500" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </aside>
+
+        <!-- COLUMNA DERECHA: Tabla Vacía -->
+        <main class="data-content">
+            <h2>Facturas Registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID pago</th>
+                        <th>ID cita</th>
+                        <th>Método pago</th>
+                        <th>Subtotal</th>
+                        <th>IVA</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-facturas">
+                    <!-- Los datos se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer>
+        Martinez Ortiz Indra Jezabel | Grupo: J | 2026
+    </footer>
+
+    <!-- Script de Automatización Local -->
+    <script>
+        document.getElementById('facturaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const idPago = document.getElementById('id_pago').value;
+            const idCita = document.getElementById('id_cita').value;
+            const metodoPago = document.getElementById('metodo_pago').value;
+            const totalNum = parseFloat(document.getElementById('total').value);
+
+            let subtotal = 0;
+            let iva = 0;
+            let totalDisplay = totalNum;
+
+            // Calcular desglose matemático si el total es mayor a 0
+            if (totalNum > 0) {
+                subtotal = (totalNum / 1.16).toFixed(2);
+                iva = (totalNum - subtotal).toFixed(2);
+            } else {
+                subtotal = "0";
+                iva = "0";
+                totalDisplay = "0";
+            }
+
+            const tbody = document.getElementById('tabla-facturas');
+            const nuevaFila = document.createElement('tr');
+
+            nuevaFila.innerHTML = `
+                <td>${idPago}</td>
+                <td>${idCita}</td>
+                <td>${metodoPago}</td>
+                <td>${subtotal}</td>
+                <td>${iva}</td>
+                <td>${totalDisplay}</td>
+            `;
+
+            tbody.appendChild(nuevaFila);
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>

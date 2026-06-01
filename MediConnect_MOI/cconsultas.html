@@ -4,16 +4,97 @@
     <meta charset="UTF-8">
     <title>Registro de Consultas</title>
     <style>
-        /* Aquí copias los mismos colores que ya tienes en tu otro código */
-        body { font-family: sans-serif; background-color: #fdfdf5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #fdfdf5; }
         header { background-color: #ADD8E6; padding: 20px; text-align: center; }
-        nav { background-color: #90EE90; padding: 10px; text-align: center; }
-        .container { padding: 30px; }
         
-        /* Estilo de la tabla */
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
-        th { background-color: #90EE90; }
+        .menu-interno { 
+            background-color: #e8f4f8; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 1px solid #ccc;
+        }
+        .btn-salto {
+            text-decoration: none;
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 0.9em;
+            border-radius: 4px;
+        }
+
+        /* --- DISEÑO DE DOS COLUMNAS (GRID) --- */
+        .workspace {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Izquierda: formulario fijo, Derecha: tabla */
+            gap: 25px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        /* --- ESTILOS DEL FORMULARIO --- */
+        .form-sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid #2e7d32;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        .form-sidebar h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 8px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 4px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #1b5e20;
+        }
+
+        /* --- ESTILOS DE LA TABLA --- */
+        .data-content { 
+            display: flex;
+            flex-direction: column;
+        }
+        h2 { color: #2c3e50; border-bottom: 2px solid #2e7d32; margin-top: 0; padding-top: 10px; }
+
+        table { width: 100%; border-collapse: collapse; background: white; margin-bottom: 40px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #90EE90; color: #1b5e20; }
+
+        footer { text-align: center; padding: 40px; background: #d1f2d1; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -23,114 +104,106 @@
         <p>Listado Oficial de Consultas</p>
     </header>
 
-    <nav>
-        <a href="index.html" style="margin-right: 20px; text-decoration: none; font-weight: bold;">Cerrar Tabla y Volver</a>
-    </nav>
-
-    <div class="container">
-        <h2>Consultas Registrados</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>ID cita</th>
-                <th>Peso kg</th>
-                <th>Temperatura</th>
-                <th>Presion</th>
-                <th>Diagnostico</th>
-                <th>Paciente</th>
-            </tr>
-           <tr>
-            <td>1</td>
-            <td>101</td>
-            <td>78.5</td>
-            <td>38.5</td>
-            <td>120/80</td>
-            <td>covid-19</td>
-            <td>Juan Gomez</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>102</td>
-            <td>68.4</td>
-            <td>37.2</td>
-            <td>110/70</td>
-            <td>Fiebre</td>
-            <td>Maria Rodriguez</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>103</td>
-            <td>82.1</td>
-            <td>36.6</td>
-            <td>130/85</td>
-            <td>Arritmia leve</td>
-            <td>Luis Lopez</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>104</td>
-            <td>58</td>
-            <td>36.4</td>
-            <td>115/75</td>
-            <td>Revision general</td>
-            <td>Fernanda Hernandez</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>105</td>
-            <td>90.5</td>
-            <td>36.4</td>
-            <td>140/90</td>
-            <td>Hipertension</td>
-            <td>Roberto Martinez</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>106</td>
-            <td>55.2</td>
-            <td>36.8</td>
-            <td>120/80</td>
-            <td>Dermatitis</td>
-            <td>Jessica Sanchez</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>107</td>
-            <td>74</td>
-            <td>37</td>
-            <td>125/80</td>
-            <td>Cefalea tensional</td>
-            <td>Daniel Perez</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>108</td>
-            <td>45.3</td>
-            <td>36.2</td>
-            <td>100/60</td>
-            <td>Anemia</td>
-            <td>Gabriela Ramirez</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>109</td>
-            <td>77.2</td>
-            <td>36</td>
-            <td>120/80</td>
-            <td>Ansiedad</td>
-            <td>Tomas Castillo</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>110</td>
-            <td>62.8</td>
-            <td>36.5</td>
-            <td>118/78</td>
-            <td>Miopia</td>
-            <td>Sofia Rivera</td>
-        </tr>
-        </table>
+    <div class="menu-interno">
+        <a href="index.html" class="btn-salto">Cerrar Tabla y Volver</a>
     </div>
+
+    <!-- Contenedor Principal en Grid -->
+    <div class="workspace">
+        
+        <!-- COLUMNA IZQUIERDA: Formulario de Registro -->
+        <aside class="form-sidebar">
+            <h3>Nueva Consulta</h3>
+            <form id="consultaForm">
+                <div class="form-group">
+                    <label for="id">ID Consulta:</label>
+                    <input type="number" id="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="id_cita">ID Cita:</label>
+                    <input type="number" id="id_cita" required>
+                </div>
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input type="number" id="peso" step="0.1" placeholder="Ej. 70.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="temperatura">Temperatura (°C):</label>
+                    <input type="number" id="temperatura" step="0.1" placeholder="Ej. 36.5" required>
+                </div>
+                <div class="form-group">
+                    <label for="presion">Presión Arterial:</label>
+                    <input type="text" id="presion" placeholder="Ej. 120/80" required>
+                </div>
+                <div class="form-group">
+                    <label for="diagnostico">Diagnóstico:</label>
+                    <input type="text" id="diagnostico" required>
+                </div>
+                <div class="form-group">
+                    <label for="paciente">Paciente:</label>
+                    <input type="text" id="paciente" required>
+                </div>
+
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </aside>
+
+        <!-- COLUMNA DERECHA: Tabla Vacía -->
+        <main class="data-content">
+            <h2>Consultas Registradas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID Cita</th>
+                        <th>Peso kg</th>
+                        <th>Temperatura</th>
+                        <th>Presión</th>
+                        <th>Diagnóstico</th>
+                        <th>Paciente</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-consultas">
+                    <!-- Los datos se insertarán aquí dinámicamente -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer>
+        Martinez Ortiz Indra Jezabel | Grupo: J | 2026
+    </footer>
+
+    <!-- Script de Automatización Local -->
+    <script>
+        document.getElementById('consultaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('id').value;
+            const id_cita = document.getElementById('id_cita').value;
+            const peso = document.getElementById('peso').value;
+            const temperatura = document.getElementById('temperatura').value;
+            const presion = document.getElementById('presion').value;
+            const diagnostico = document.getElementById('diagnostico').value;
+            const paciente = document.getElementById('paciente').value;
+
+            const tbody = document.getElementById('tabla-consultas');
+            const nuevaFila = document.createElement('tr');
+
+            nuevaFila.innerHTML = `
+                <td>${id}</td>
+                <td>${id_cita}</td>
+                <td>${peso}</td>
+                <td>${temperatura}</td>
+                <td>${presion}</td>
+                <td>${diagnostico}</td>
+                <td>${paciente}</td>
+            `;
+
+            tbody.appendChild(nuevaFila);
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>
